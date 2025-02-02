@@ -32,3 +32,4 @@ build/
 !**/src/bin/com/
 ### VS Code ###
 .vscode/
+[Bb]in
