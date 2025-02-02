@@ -1,7 +1,6 @@
 package com.banking.BankingApplication.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 //import org.springframework.data.annotation.Id;
 
@@ -9,10 +8,11 @@ import javax.persistence.Id;
 public class User {
 
 	@Id
+	@GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
 	private Integer id;
 	private String firstName;
 	private String lastName;
-	private long balance;
+	private String email;
 	public Integer getId() {
 		return id;
 	}
@@ -31,20 +31,27 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public long getBalance() {
-		return balance;
+	public String getEmail() {
+		return email;
 	}
-	public void setBalance(long balance) {
-		this.balance = balance;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public User(Integer id, String firstName, String lastName, long balance) {
+	public User(Integer id, String firstName, String lastName, String email) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.balance = balance;
+		this.email = email;
 	}
-	public User() {}
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+	}
 	
 	
 }

@@ -20,4 +20,19 @@ public class UserService {
 		return userRepo.findAll();
 	}
 
+	public User createUser(User user) {
+		User save = userRepo.save(user);
+		return save;
+	}
+	
+	public User updateUser(Integer id,User user) {
+		User findUser = userRepo.findById(id);
+		if(findUser!=null) {
+			findUser.setEmail(user.getEmail());
+			findUser.setFirstName(user.getFirstName());
+			findUser.setLastName(user.getLastName());
+		}
+		User updatedUser = userRepo.save(findUser);
+		return updatedUser;
+	}
 }
